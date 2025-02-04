@@ -6,17 +6,17 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:33:55 by codespace         #+#    #+#             */
-/*   Updated: 2025/02/04 23:40:08 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/04 23:43:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_swap(int *a, int *b)
 {
-    int *tmp;
+    int tmp;
 
-    tmp = a;
-    a = b;
-    b = tmp;
+    tmp = *a;
+    *a = *b;
+    *b = tmp;
 }
 
 
