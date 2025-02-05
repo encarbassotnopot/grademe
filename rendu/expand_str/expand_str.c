@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 02:07:06 by codespace         #+#    #+#             */
-/*   Updated: 2025/02/05 02:23:56 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/05 02:33:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,12 @@ void expand_str(char **argv)
 			i++;
 		if (argv[1][i] == ' ' && argv[1][i + 1] != ' ')
 			i++;
-		write(1, &argv[1][i], 1);
+        if (argv[1][i] ==  '.')
+        {
+            write(1, &argv[1][i], 1);
+            break;
+        }
+        write(1, &argv[1][i], 1);
 		i++;
 	}
 }
