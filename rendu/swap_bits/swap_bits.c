@@ -6,11 +6,9 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:44:56 by codespace         #+#    #+#             */
-/*   Updated: 2025/02/05 01:59:33 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/05 02:02:04 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 unsigned char	swap_bits(unsigned char octet)
 {
