@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:44:56 by codespace         #+#    #+#             */
-/*   Updated: 2025/02/05 02:02:04 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/05 02:02:44 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,7 @@ unsigned char	swap_bits(unsigned char octet)
 
     unsigned char inverted_octet = (second_half << 4) | first_half; // Inverte as metades
 
-    int i = (sizeof(unsigned char) * 8) - 1;
-    while (i >= 0)
-    {
-        unsigned char bit = ((inverted_octet >> i) & 1) + '0';
-        write(1, &bit, 1);
-        i--;
-    }
-    return (octet);
+    return (inverted_octet);
 }
 
 // int main(void)
