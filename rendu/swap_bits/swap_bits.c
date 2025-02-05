@@ -6,34 +6,24 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:44:56 by codespace         #+#    #+#             */
-/*   Updated: 2025/02/05 00:38:15 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/05 01:59:33 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
 unsigned char	swap_bits(unsigned char octet)
 {
-    unsigned char last_part;
-    unsigned char first_part;
-    int i = 3;
-    int j = sizeof(unsigned char) * 8 - 1;
+    unsigned char first_half = (octet >> 4) & 0x0F; // Pega os 4 bits mais significativos
+    unsigned char second_half = octet & 0x0F;       // Pega os 4 bits menos significativos
 
-    while (j >= 4)
-    {
-        last_part = (((octet >> i) & 1) + '0');
-        first_part = (((octet >> j) & 1) + '0');
-        i--;
-        j--;
-    }
-    i = 3;
+    unsigned char inverted_octet = (second_half << 4) | first_half; // Inverte as metades
+
+    int i = (sizeof(unsigned char) * 8) - 1;
     while (i >= 0)
     {
-        octet = (((last_part >> i) & 1) + '0');
-         i--;
-    }
-    i = 7;
-    while (i >= 4)
-    {
-        octet = (((first_part >> i) & 1) + '0');
+        unsigned char bit = ((inverted_octet >> i) & 1) + '0';
+        write(1, &bit, 1);
         i--;
     }
     return (octet);
@@ -43,7 +33,7 @@ unsigned char	swap_bits(unsigned char octet)
 // {
 //     unsigned char octet;
     
-//     octet = '1';
+//     octet = 'A';
 //     swap_bits(octet);
 //     return (0);
 // }
