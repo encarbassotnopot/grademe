@@ -6,12 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:37:37 by codespace         #+#    #+#             */
-/*   Updated: 2025/02/08 22:47:04 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/08 22:47:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <unistd.h>
 
 char    *ft_strdup(char *src)
 {
