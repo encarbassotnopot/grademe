@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:37:37 by codespace         #+#    #+#             */
-/*   Updated: 2025/02/08 22:47:54 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/08 22:52:08 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ char    *ft_strdup(char *src)
     while (src[str_len])
         str_len++;
     destiny = malloc(sizeof(char) * str_len + 1);
+    if (!destiny)
+        return NULL;
     while (src[i])
     {
         destiny[i] = src[i];
-        write(1, &destiny[i], 1);
         i++;
     }
     destiny[i] = '\0';
