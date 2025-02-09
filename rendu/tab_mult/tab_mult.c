@@ -6,12 +6,12 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:03:53 by codespace         #+#    #+#             */
-/*   Updated: 2025/02/09 00:28:48 by codespace        ###   ########.fr       */
+/*   Updated: 2025/02/09 00:42:00 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
+#include <stdio.h>
 void tab_mult(int number_mult)
 {
     char number_to_show[10];
@@ -52,11 +52,19 @@ void tab_mult(int number_mult)
             write(1, &number_to_show_number_mult[j], 1);
             j--;
         }
+        if (number_mult == 0)
+        {
+            write(1, "0", 1);
+        }
         write(1, " = ", 3);
         while (i >= 0)
         {
             write(1, &number_to_show[i], 1);
             i--;
+        }
+        if (number_mult == 0)
+        {
+            write(1, "0", 1);
         }
         write(1, "\n", 1);
         multiplied++;
