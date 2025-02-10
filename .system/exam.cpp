@@ -107,7 +107,8 @@ void exam::explanation(void)
               << "             - The host name of your machine. (can be set to anonyme in menu)\n"
               << "             - The exam number you choose.\n"
               << "             - Name of exercise, fail or success, current assignement and level.\n"
-              << std::endl << std::endl;
+              << std::endl
+              << std::endl;
 
     std::cout << "\x1B[32m      🚀 Grademe VIP\e[97m\e[1m: (0€ - 3€)" << std::endl;
     std::cout << "         You can become VIP by contributing to the repo, making a \x1B[35mPull Request\e[97m\e[1m\n         OR \x1B[32mSponsor Github Page\e[97m\e[1m (use \x1B[35msponsor\e[97m\e[1m for more info):\n"
@@ -115,17 +116,18 @@ void exam::explanation(void)
               << "             - Force an exercise to succeed with \x1B[35mforce_success\e[97m\e[1m command\n"
               << "             - Having the \x1B[35mSAME display condition\e[97m\e[1m as 42 school\n"
               << "               More coming...\n"
-              << std::endl << std::endl;
-    
+              << std::endl
+              << std::endl;
+
     std::cout << RED << "     ‼️  DICLAIMER" << WHITE << std::endl;
     std::cout << "         This program is " << RED << "not" << WHITE << " the real 42 exam and is " << RED << "not" << WHITE << " made by 42." << std::endl;
-    std::cout << "         It is created by a student, free and open-source." << std::endl << std::endl;
+    std::cout << "         It is created by a student, free and open-source." << std::endl
+              << std::endl;
     std::cout << RESET << "     (Press enter to continue...)" << std::endl
               << "      ";
     if (!std::getline(std::cin, enter))
         sigd();
 }
-
 
 // ==> First menu asking examrank number
 void exam::ask_param(void)
@@ -200,7 +202,6 @@ void exam::ask_param(void)
     memset(&temp, '\0', sizeof(struct tm));
     localtime_r(&end_time, &temp);
     // ============
-
 }
 
 std::string generate_unique_id()
@@ -234,25 +235,15 @@ exam::exam(void) : exam_grade(0), level(0), level_max(0), failures(0), student(f
 {
     reelmode = true;
     waiting_time = true;
-	vip = 0;
+    vip = 0;
     username = getenv("USER");
     load_settings();
-	system("curl https://user.grademe.fr/vip_list > .system/vip_list 2> /dev/null");
-	std::ifstream vip_list(".system/vip_list");
-	std::string line;
-
-	while (std::getline(vip_list, line))
-	{
-		if (line == username)
-		{
-			vip = 1;
-			break;
-		}
-	}
+    std::ifstream vip_list(".system/vip_list");
+    std::string line;
+    vip = 1;
     changex = 0;
     if (setting_an == 1)
         setenv("LOGNAMELOG42EXAM", generate_unique_id().c_str(), 1);
-    system("rm .system/vip_list");
 }
 
 exam &exam::operator=(exam const &src)
