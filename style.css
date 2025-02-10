@@ -1,0 +1,68 @@
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: "Zilla Slab", serif;
+	height: 80vh;
+	background-color: whitesmoke;
+}
+
+h1 {
+	font-size: 5em;
+	font-weight: 600;
+	-webkit-text-fill-color: transparent;
+	opacity: 0.6;
+	animation: 5s gradient infinite;
+	background: linear-gradient(
+			90deg,
+			rgb(255, 0, 0),
+			rgb(0, 255, 0),
+			rgb(0, 0, 255),
+			rgb(255, 0, 255)
+		)
+		0% 0% / 200% 100% padding-box text;
+	user-select: none;
+	text-align: center;
+}
+
+@keyframes gradient {
+	0% {
+		background-position-x: 0%;
+	}
+	100% {
+		background-position-x: 200%;
+	}
+}
+
+.pill {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 0%;
+}
+
+.cmd {
+	font-weight: 300;
+	font-size: 1.4em;
+	padding: 0.6em;
+	background-color: white;
+	border-radius: 1rem 0 0 1rem;
+}
+
+.copy {
+	font-weight: 400;
+	font-size: 1.6em;
+	padding: 0.4em;
+	background-color: black;
+	color: white;
+	border-radius: 0 1rem 1rem 0;
+	user-select: none;
+}
+
+@media (max-width: 500px) {
+	.pill {
+		display: none;
+	}
+}
