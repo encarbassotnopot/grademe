@@ -49,7 +49,8 @@ void exam::exam_help()
     std::cout << LIME << "    finish:" << RESET << " exit the exam" << std::endl;
     std::cout << LIME << "    grademe:" << RESET << " grade your exercise" << std::endl;
     std::cout << LIME << "    repo_git:" << RESET << " visit github repo" << std::endl;
-    std::cout << "See github repo to find some more 'cheat' command" << std::endl << std::endl;
+    std::cout << "See github repo to find some more 'cheat' command" << std::endl
+              << std::endl;
     std::cout << BOLD << LIME << "VIP MENU (sponsor or contribute): " << RESET << std::endl;
     std::cout << LIME << "    force_success:" << RESET << " force a ex to success" << std::endl;
     std::cout << LIME << "    remove_grade_time:" << RESET << " remove grade time limit between two grademe" << std::endl;
@@ -61,7 +62,8 @@ void exam::exam_help()
 void exam::info(void)
 {
     // std::cout << "⚠️  V2 of 42_EXAM was release " << lastupdate(time(0)) << " ago." << std::endl << "If you encounter any problems, please report them on the Github repo."<< std::endl << std::endl;
-    std::cout << "==================================================================" << std::endl << std::endl;
+    std::cout << "==================================================================" << std::endl
+              << std::endl;
     // std::cout << "Level: " << LIME << level << RESET << " ";
     if (reelmode)
         std::cout << "Mode: " << MAGENTA << "REAL" << RESET << " | ";
@@ -76,7 +78,7 @@ void exam::info(void)
         std::cout << "  Level " << LIME << it->second.get_lvl() << RESET << ": " << std::endl;
         for (unsigned int i = 0; i < it->second.get_assignement(); i++)
         {
-            std::cout << "    " << YELLOW << i << RESET << ": " << LIME << it->second.get_name() << RESET << " for " << (int)level_per_ex_save  << " potential points (" << RED << "Failure" << RESET << ")" << std::endl;
+            std::cout << "    " << YELLOW << i << RESET << ": " << LIME << it->second.get_name() << RESET << " for " << (int)level_per_ex_save << " potential points (" << RED << "Failure" << RESET << ")" << std::endl;
         }
         std::cout << "    " << YELLOW << it->second.get_assignement() << RESET << ": " << LIME << it->second.get_name() << RESET << " for " << (int)level_per_ex_save << " potential points (" << LIME << "Success" << RESET << ")" << std::endl;
     }
@@ -93,11 +95,12 @@ void exam::info(void)
         std::cout << "    " << YELLOW << current_ex->get_assignement() << RESET << ": " << LIME << current_ex->get_name() << RESET << " for " << (int)level_per_ex_save << " potential points (" << CYAN << "Current" << RESET << ")" << std::endl;
     }
     std::cout << std::endl
-              << "Assignment: " << LIME << current_ex->get_name() << RESET << " for " << LIME << BOLD << (double)(((double)level + 1) / (double)level_max * 100) << RESET << "xp" <<RESET << ", ";
-    std::cout << "try: " << YELLOW << current_ex->get_assignement() << RESET << std::endl << std::endl;
+              << "Assignment: " << LIME << current_ex->get_name() << RESET << " for " << LIME << BOLD << (double)(((double)level + 1) / (double)level_max * 100) << RESET << "xp" << RESET << ", ";
+    std::cout << "try: " << YELLOW << current_ex->get_assignement() << RESET << std::endl
+              << std::endl;
     std::cout << "Subject location:  " << LIME << current_path() << "/subjects/subject.en.txt" << RESET << std::endl;
     std::cout << "Exercise location: " << RED << current_path() << "/rendu/" << current_ex->get_name() << "/" << RESET << std::endl;
-    std::cout << "Here you " << RED << BOLD << "don't need" << RESET <<" to use git." << std::endl
+    std::cout << "Here you " << RED << BOLD << "don't need" << RESET << " to use git." << std::endl
               << std::endl;
     std::cout << "End date: " << LIME << std::put_time(std::localtime(&end_time), "%d/%m/%Y %H:%M:%S") << RESET << std::endl;
     std::cout << "Left time: " << LIME << remaining_time(end_time) << RESET << std::endl;
@@ -210,12 +213,13 @@ int exam::stud_or_swim(void)
     {
         system("clear");
         std::cout << WHITE << BOLD << "         42EXAM " << std::endl;
-        if(vip)
-            std::cout << "    You are a " << LIME << "VIP" << WHITE << BOLD << " user" << RESET << std::endl << std::endl;
+        if (vip)
+            std::cout << "    You are a " << LIME << "VIP" << WHITE << BOLD << " user" << RESET << std::endl
+                      << std::endl;
         else
             std::cout << "     Made by " << LIME << "jcluzet" << RESET << std::endl
-                  << std::endl
-                  << std::endl;
+                      << std::endl
+                      << std::endl;
         std::cout << LIME << BOLD << "            1" << RESET << std::endl;
         std::cout << WHITE << BOLD << "    |  Piscine PART  |" << RESET << BOLD << std::endl
                   << "     \\ ------------ /" << std::endl
@@ -223,17 +227,18 @@ int exam::stud_or_swim(void)
         std::cout << LIME << BOLD << "            2" << RESET << std::endl;
         std::cout << WHITE << BOLD << "    |  Student PART  |" << RESET << BOLD << std::endl
                   << "     \\ ------------ /" << std::endl
-                  << std::endl << std::endl;
+                  << std::endl
+                  << std::endl;
 
         std::cout << LIME << BOLD << "            3" << RESET << std::endl;
         std::cout << WHITE << BOLD << "    |" << RESET << BOLD << "  SETTINGS PART " << WHITE << BOLD << "|" << RESET << BOLD << std::endl
                   << "     \\ ------------ /" << std::endl
                   << std::endl
                   << std::endl;
-        
+
         if (choice == "-1")
             std::cout << BOLD << RED;
-        else 
+        else
             std::cout << WHITE << BOLD;
         std::cout << "    Enter your choice:" << RESET << std::endl
                   << "            ";
@@ -245,7 +250,7 @@ int exam::stud_or_swim(void)
             settings_menu();
             std::cin.ignore();
         }
-        else if (choice != "1" && choice != "2" )
+        else if (choice != "1" && choice != "2")
             choice = "-1";
     }
     return (atoi(choice.c_str()));
@@ -255,16 +260,14 @@ int exam::stud_or_swim(void)
 void exam::settings_menu(void)
 {
     load_settings();
-    char* logname = std::getenv("LOGNAME");
-    char* lognameexam;
     std::string input = "";
     while (input != "0")
     {
         system("clear");
 
-        lognameexam = std::getenv("LOGNAMELOG42EXAM");
-
-        std::cout << WHITE << BOLD << "     === SETTINGS MENU ===" << std::endl << RED << "          BACK" << RESET << WHITE << BOLD << " with " << RED << "0" << RESET << std::endl << std::endl;
+        std::cout << WHITE << BOLD << "     === SETTINGS MENU ===" << std::endl
+                  << RED << "          BACK" << RESET << WHITE << BOLD << " with " << RED << "0" << RESET << std::endl
+                  << std::endl;
 
         std::cout << LIME << "1." << WHITE << BOLD << " Enable exercises you already passed";
         if (setting_dse)
@@ -278,12 +281,6 @@ void exam::settings_menu(void)
         else
             std::cout << RED << BOLD << " OFF" << RESET << std::endl;
 
-        std::cout << LIME << "3." << WHITE << BOLD << " Anonymise data sending to LOG : ";
-        if (setting_an)
-            std::cout << LIME << BOLD << " ON" << RESET << std::endl;
-        else
-            std::cout << RED << BOLD << " OFF" << RESET << std::endl;
-        std::cout << "   > Name sending to log is currently : " << LIME << BOLD << lognameexam << RESET << std::endl;
         std::cin >> input;
         if (input == "1")
         {
@@ -291,26 +288,11 @@ void exam::settings_menu(void)
         }
         if (input == "2")
             setting_dcc = !setting_dcc;
-
-        if (input == "3")
-        {
-            setting_an = !setting_an;
-            if (setting_an)
-                setenv("LOGNAMELOG42EXAM", generate_unique_id().c_str(), 1);
-            else 
-                setenv("LOGNAMELOG42EXAM", logname, 1);
-        }
     }
 
     std::cout << REMOVE_LINE << RESET << WHITE << BOLD << "Save settings..." << std::endl;
-    std::string tmp = "bash .system/data_sender.sh \"settings_out:enable_ead>" + std::to_string(setting_dse);
-    tmp += "__settings:enable_cheat>" + std::to_string(setting_dcc) + "\"";
-    system(tmp.c_str());
     save_settings();
 }
-
-
-
 
 // ==> Display the menu for the student part
 int exam::stud_menu(void)

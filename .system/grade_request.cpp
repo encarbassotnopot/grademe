@@ -2,8 +2,6 @@
 
 void exam::fail_ex()
 {
-    std::string tmp = "bash .system/data_sender.sh \"fail_ex:" + current_ex->get_name() + " level:" + std::to_string(level) + " assignement:" + std::to_string(current_ex->get_assignement()) + "\"";
-    system(tmp.c_str());
     current_ex->up_assignement();
     current_ex->set_time_bef_grade(time(NULL) + current_ex->grade_time() * 60);
     store_data();
@@ -24,11 +22,6 @@ void exam::success_ex(bool force)
               << LIME << ">>>>>>>>>> SUCCESS <<<<<<<<<<" << RESET << std::endl
               << std::endl;
     std::string tmp;
-    if (force)
-        tmp = "bash .system/data_sender.sh \"cheat_success_ex: " + current_ex->get_name() + " level:" + std::to_string(level) + " assignment:" + std::to_string(current_ex->get_assignement()) + "\"";
-    else
-        tmp = "bash .system/data_sender.sh \"success_ex: " + current_ex->get_name() + " level:" + std::to_string(level) + " assignment:" + std::to_string(current_ex->get_assignement()) + "\"";
-    system(tmp.c_str());
     up_lvl();
     std::cout << "(Press enter to continue...)" << std::endl;
     std::string input;
@@ -57,21 +50,11 @@ void exam::end_exam()
     remove(".system/exam_token/actuel_token.txt");
     if (using_cheatcode == 0)
     {
-        if (student)
-            tmp = "bash .system/data_sender.sh \"exam_success_end: examrank0" + std::to_string(exam_number) + "\"";
-        else
-            tmp = "bash .system/data_sender.sh \"exam_success_end: examweek0" + std::to_string(exam_number) + "\"";
-        system(tmp.c_str());
         std::cout << WHITE << BOLD << "🥳 Congratulation! You have finished the Exam Rank 0" << exam_number << " !" << std::endl;
     }
     else
     {
         std::cout << WHITE << BOLD << "🙁 You have finished the Exam Rank 0" << exam_number << ", " << RED << BOLD << "after using " << using_cheatcode << " cheat command..." << WHITE << BOLD << std::endl;
-        if (student)
-            tmp = "bash .system/data_sender.sh \"exam_success_cheat" + std::to_string(using_cheatcode) + ": examrank0" + std::to_string(exam_number) + "\"";
-        else
-            tmp = "bash .system/data_sender.sh \"exam_success_cheat" + std::to_string(using_cheatcode) + ": examweek0" + std::to_string(exam_number) + "\"";
-        system(tmp.c_str());
     }
     std::cout << "\n\e[1m\e[96mA word from the creator:\e[0m\n"
               << std::endl;

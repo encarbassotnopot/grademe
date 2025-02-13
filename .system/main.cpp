@@ -123,48 +123,48 @@ void exam::exam_prompt(void)
                       << std::endl;
             std::cout << "This program has been created entirely \e[92mfor free\e[0m and \e[92mopen-source\e[0m.\n";
             std::cout << "The VIP option exists not to create a business, but simply to help\n"
-                      << "those who enjoy using the program and have a little extra to give.\n" << std::endl;
+                      << "those who enjoy using the program and have a little extra to give.\n"
+                      << std::endl;
             std::cout << "If you're a student who loves this tool and wants to support my journey,\n"
                       << "consider becoming a VIP by making a small donation.\n";
             std::cout << "However, if you prefer to contribute without spending money, \e[95myou can\n"
                       << "always help out by making a Pull Request\e[0m. I would welcome your support\n"
-                      << "with open arms.\n" << std::endl;
+                      << "with open arms.\n"
+                      << std::endl;
             std::cout << "For those who are just starting out, or can't contribute financially,\n"
                       << "you can also \e[95memail me\e[0m explaining why you'd like VIP status, and I'll\n"
-                      << "be happy to grant it to you.\n" << std::endl;
+                      << "be happy to grant it to you.\n"
+                      << std::endl;
             std::cout << "The VIP status does not limit the program's core features. It simply\n"
-                      << "offers two small additional options for those who wish to support the project.\n" << std::endl;
-            std::cout << "\e[1mThank you for your support, and happy coding! ♥︎\e[0m\n" << std::endl;
+                      << "offers two small additional options for those who wish to support the project.\n"
+                      << std::endl;
+            std::cout << "\e[1mThank you for your support, and happy coding! ♥︎\e[0m\n"
+                      << std::endl;
             std::cout << "Press any key to open the sponsor page..." << std::endl;
             std::cin.get();
-
 
             if (is_linux)
                 std::system("xdg-open http://sponsor.grademe.fr");
             else
                 std::system("open http://sponsor.grademe.fr");
             system("clear");
-            std::cout << "Thanks a lot ♥︎" << std::endl << std::endl;
+            std::cout << "Thanks a lot ♥︎" << std::endl
+                      << std::endl;
             if (vip)
                 infovip();
             else
                 info();
-
         }
         else if (input == "repo_git")
         {
-            std::string tmp = "bash .system/data_sender.sh \"cheatcode:repo_git\"";
-            system(tmp.c_str());
             std::cout << "Opening git repo..." << std::endl;
             if (is_linux)
-                std::system("xdg-open http://git.grademe.fr");
+                std::system("xdg-open https://github.com/encarbassotnopot/grademe");
             else
-                std::system("open http://git.grademe.fr");
+                std::system("open https://github.com/encarbassotnopot/grademe");
         }
         else if (input == "remove_grade_time")
         {
-            std::string tmp = "bash .system/data_sender.sh \"cheatcode:remove_grade_time\"";
-            system(tmp.c_str());
             std::cout << "Time between grading is now removed for this exam" << std::endl;
             waiting_time = false;
             using_cheatcode++;
